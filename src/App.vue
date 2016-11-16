@@ -14,7 +14,7 @@
 
         要隐藏“剩余奖金”，需添加class：hr_hide_money
     -->
-    <div class="hr_wrap con hr_show_in hr_l2_2" id="hr_wrap">
+    <div class="hr_wrap con hr_show_in" v-bind:class="wrapcls" id="hr_wrap">
         <!--start:公用-->
         <p class="hr_img11 hr_logo"></p>
         <p class="hr_img0 cover hr_bg"></p>
@@ -68,35 +68,35 @@
             <div class="cover hr_map_con" id="hr_l2_map_con">
                 <div class="hr_img17 hr_map" id="hr_l2_map" >
                     <span class="hr_img15 hr_uav"></span>
-                    <a class="hr_img15 hr_map_box" data-id="0"></a>
-                    <a class="hr_img15 hr_map_box" data-id="1"></a>
+                    <a class="hr_img15 hr_map_box" data-id="0" v-on:click="boxclk"></a>
+                    <a class="hr_img15 hr_map_box" data-id="1" v-on:click="boxclk"></a>
                     <span class="hr_img15 hr_light1"></span>
                     <span class="hr_img15 hr_light3"></span>
                     <span class="hr_img15 hr_light4"></span>
                     <span class="hr_img15 hr_light5"></span>
                     <span class="hr_img15 hr_balloon0"></span>
-                    <a class="hr_img15 hr_map_box" data-id="2"></a>
+                    <a class="hr_img15 hr_map_box" data-id="2" v-on:click="boxclk"></a>
                     <span class="hr_img15 hr_light2"></span>
                     <span class="hr_img15 hr_balloon1"></span>
                     <span class="hr_img15 hr_balloon2"></span>
-                    <a class="hr_img15 hr_map_box" data-id="3"></a>
+                    <a class="hr_img15 hr_map_box" data-id="3" v-on:click="boxclk"></a>
                     <span class="hr_img15 hr_snow"></span>
                     <span class="hr_img15 hr_balloon3"></span>
                     <span class="hr_img15 hr_fire"></span>
-                    <a class="hr_img15 hr_map_box" data-id="4"></a>
+                    <a class="hr_img15 hr_map_box" data-id="4" v-on:click="boxclk"></a>
                     <span class="hr_img15 hr_snowman"></span>
                     <span class="hr_img15 hr_light0"></span>
                     <span class="hr_img15 hr_ice"></span>
                     <span class="hr_img15 hr_crab"></span>
-                    <a class="hr_img15 hr_map_box" data-id="5"></a>
+                    <a class="hr_img15 hr_map_box" data-id="5" v-on:click="boxclk"></a>
                     <span class="hr_img15 hr_balloon5"></span>
                     <span class="hr_img15 hr_balloon6"></span>
                     <span class="hr_img15 hr_balloon4"></span>
-                    <a class="hr_img15 hr_map_box" data-id="6"></a>
+                    <a class="hr_img15 hr_map_box" data-id="6" v-on:click="boxclk"></a>
                     <span class="hr_img15 hr_water"></span>
                     <span class="hr_img15 hr_cloud0"></span>
                     <span class="hr_img15 hr_cloud1"></span>
-                    <a class="hr_img15 hr_map_box" data-id="7"></a>
+                    <a class="hr_img15 hr_map_box" data-id="7" v-on:click="boxclk"></a>
                     <div class="cover hr_tips" id="hr_l2_map_tips" style="display:none;">
                         <p class="overlay"></p>
                         <p class="hr_img15 middle hr_icon"></p>
@@ -112,56 +112,63 @@
             </div>
 
             <!--start:第1关奖励弹框-->
-                <div class="hr_popup hr0" id="hr_l2_popup0" style="display:none;">
-                    <p class="overlay"></p>
-                    <div class="hr_img16 hr_content">
-                        <p class="hr_title">&nbsp;<span id="hr_l2_popup0_title_val"></span>元启动资金到手！</p>
-                        <div class="flex_c hr_coupon">
-                            <p class="hr_val_wrap">
-                                <span class="hr_unit">¥</span>
-                                <span class="hr_val" id="hr_l2_popup0_coupon_val"></span>
-                            </p>
-                            <p class="hr_tips_wrap">
-                                <span class="hr_cate" id="hr_l2_popup0_coupon_cate">全品类</span>
-                                <span class="hr_cond">满<span id="hr_l2_popup0_coupon_cond_val"></span>元可用</span>
-                            </p>
-                        </div>
-                        <p class="hr_img15 hr_subtitle"></p>
-                        <a class="hr_img11 hr_btn" id="hr_l2_popup0_btn">
-                            <span class="hr_img15 middle hr_btn_txt"></span>
-                        </a>
-                    </div>
-                </div>
+                <transition name="fade">
+                  <div class="hr_popup hr0" id="hr_l2_popup0" v-show="lev1Show">
+                      <p class="overlay"></p>
+                      <div class="hr_img16 hr_content">
+                          <p class="hr_title">&nbsp;<span id="hr_l2_popup0_title_val">5</span>元启动资金到手！</p>
+                          <div class="flex_c hr_coupon">
+                              <p class="hr_val_wrap">
+                                  <span class="hr_unit">¥</span>
+                                  <span class="hr_val" id="hr_l2_popup0_coupon_val">5</span>
+                              </p>
+                              <p class="hr_tips_wrap">
+                                  <span class="hr_cate" id="hr_l2_popup0_coupon_cate">全品类</span>
+                                  <span class="hr_cond">满<span id="hr_l2_popup0_coupon_cond_val">20</span>元可用</span>
+                              </p>
+                          </div>
+                          <p class="hr_img15 hr_subtitle"></p>
+                          <a class="hr_img11 hr_btn" id="hr_l2_popup0_btn" v-on:click="hrL2clk">
+                              <span class="hr_img15 middle hr_btn_txt"></span>
+                          </a>
+                      </div>
+                  </div>
+                </transition>
+
             <!--end:第1关奖励弹框-->
 
             <!--start:第2关奖励弹框-->
-            <div class="hr_popup hr1" id="hr_l2_popup1" style="display:none;">
-                <p class="overlay"></p>
-                <div class="hr_img16 hr_content">
-                    <p class="hr_title">&nbsp;<span id="hr_l2_popup1_title_val"></span>元奖励金到手！</p>
-                    <div class="flex_c hr_coupon">
-                        <p class="hr_val_wrap">
-                            <span class="hr_unit">¥</span>
-                            <span class="hr_val" id="hr_l2_popup1_coupon_val"></span>
-                        </p>
-                        <p class="hr_tips_wrap">
-                            <span class="hr_cate" id="hr_l2_popup1_coupon_cate">全品类</span>
-                            <span class="hr_cond">满<span id="hr_l2_popup1_coupon_cond_val"></span>元可用</span>
-                        </p>
-                    </div>
-                    <p class="hr_img15 hr_subtitle"></p>
-                    <a class="hr_img11 hr_btn" id="hr_l2_popup1_btn">
-                        <span class="hr_img15 middle hr_btn_txt"></span>
-                    </a>
-                </div>
-            </div>
+            <transition name="fade">
+              <div class="hr_popup hr1" id="hr_l2_popup1" v-show="lev2Show">
+                  <p class="overlay"></p>
+                  <div class="hr_img16 hr_content">
+                      <p class="hr_title">&nbsp;<span id="hr_l2_popup1_title_val">100</span>元奖励金到手！</p>
+                      <div class="flex_c hr_coupon">
+                          <p class="hr_val_wrap">
+                              <span class="hr_unit">¥</span>
+                              <span class="hr_val" id="hr_l2_popup1_coupon_val">100</span>
+                          </p>
+                          <p class="hr_tips_wrap">
+                              <span class="hr_cate" id="hr_l2_popup1_coupon_cate">全品类</span>
+                              <span class="hr_cond">满<span id="hr_l2_popup1_coupon_cond_val">100</span>元可用</span>
+                          </p>
+                      </div>
+                      <p class="hr_img15 hr_subtitle"></p>
+                      <a class="hr_img11 hr_btn" id="hr_l2_popup1_btn" v-on:click="collectBoxes">
+                          <span class="hr_img15 middle hr_btn_txt"></span>
+                      </a>
+                  </div>
+              </div>
+            </transition>
             <!--end:第2关奖励弹框-->
 
             <!--start:找到宝箱动画-->
-            <p class="cover hr_big_box_wrap" id="hr_l2_big_box_wrap" style="display:none;">
-                <span class="hr_img18 middle hr_big_light" id="hr_l2_big_light"></span>
-                <span class="hr_img9 middle hr_box hr_big_box" id="hr_l2_big_box"></span>
-            </p>
+            <transition name="fade">
+              <p class="cover hr_big_box_wrap" id="hr_l2_big_box_wrap" v-show="findBox" >
+                  <span class="hr_img18 middle hr_big_light" id="hr_l2_big_light"></span>
+                  <span class="hr_img9 middle hr_box hr_big_box" id="hr_l2_big_box"></span>
+              </p>
+            </transition>
             <!--end:找到宝箱动画-->
 
         </div>
@@ -180,7 +187,7 @@
                 </div>
             </div>
             <p class="hr_btn_wrap">
-                <a class="hr_img9 hr_btn">
+                <a class="hr_img9 hr_btn" v-on:click="hrL3clk">
                     <span class="hr_img9 hr_btn_txt" id="shareF"></span>
                 </a>
             </p>
@@ -191,6 +198,39 @@
         <div class="hr_pack hr_l4">
             <div class="hr_content">
                 <ul class="hr_coupons" id="hr_coupons">
+                  <li class="flex_c hr_coupon">
+                      <p class="hr_border"></p>
+                      <p class="hr_val_wrap">
+                          <span class="hr_unit">¥</span>
+                          <span class="hr_val" id="hr_l2_popup0_coupon_val">5</span>
+                      </p>
+                      <p class="hr_tips_wrap">
+                          <span class="hr_cate" id="hr_l2_popup0_coupon_cate">全品类</span>
+                          <span class="hr_cond">满<span id="hr_l2_popup0_coupon_cond_val">20</span>元可用</span>
+                      </p>
+                  </li>
+                  <li class="hr_coupon">
+                    <p class="hr_border"></p>
+                    <p class="hr_val_wrap">
+                      <span class="hr_unit">¥</span>
+                      <span class="hr_val">100</span>
+                    </p>
+                    <p class="hr_tips_wrap">
+                      <span class="hr_cate">全品类</span>
+                      <span class="hr_cond">满100可用</span>
+                    </p>
+                    <p class="hr_drawn_mask">
+                      <a class="hr_txt">hr_drawn_mask</a>
+                    </p>
+                  </li>
+                  <li class="hr_coupon hr_drawn">
+                    <p class="hr_drawn_mask">
+                      <span class="hr_txt"></span>
+                    </p>
+                      <p class="hr_draw_tips">
+                        <span class="hr_txt">刮开神秘奖券</span>
+                      </p>
+                  </li>
                 </ul>
                 <p class="hr_img7 hr_pack_f"></p>
                 <p class="hr_img7 hr_rope"></p>
@@ -205,7 +245,7 @@
             <p class="hr_img5 hr_bubble"></p>
 
             <!--start:“去京东赢好礼”按钮-->
-            <a class="hr_img5 hr_btn hr6" id="hr_l1_btns">
+            <a class="hr_img5 hr_btn hr6" id="hr_l1_btns" v-on:click="hrL1clk">
                 <span class="hr_img5 hr_btn_txt"></span>
             </a>
             <!--end:“去京东赢好礼”按钮-->
@@ -299,9 +339,46 @@ export default {
   components: {
     Hello
   },
+  data: function () {
+    return {
+      wrapcls: 'hr_scan',
+      lev1Show: false,
+      lev2Show: false,
+      findBox: false,
+      boxnum: 0
+    }
+  },
   methods: {
     hr0clk: function () {
-      console.log(this)
+      this.wrapcls = 'hr_l2_2'
+      this.lev1Show = true
+    },
+    hrL1clk: function () {
+      this.wrapcls = 'hr_l1_1'
+    },
+    hrL2clk: function () {
+      this.lev1Show = false
+    },
+    boxclk: function (e) {
+      this.findBox = true
+      e.target.className = 'hr_img15 hr_map_box hr_hide'
+      setTimeout(() => {
+        this.findBox = false
+      }, 1500)
+      this.boxnum++
+      if (this.boxnum === 5) {
+        this.lev2Show = true
+      }
+    },
+    collectBoxes: function () {
+      this.lev2Show = false
+      this.wrapcls = 'hr_l3_1'
+    },
+    hrL3clk: function () {
+      this.wrapcls = 'hr_l4_1'
+      setTimeout(() => {
+        this.wrapcls = 'hr_l4_2'
+      }, 1000)
     }
   }
 }
