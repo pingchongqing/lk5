@@ -14,7 +14,7 @@
 
         要隐藏“剩余奖金”，需添加class：hr_hide_money
     -->
-    <div class="hr_wrap con hr_show_in" v-bind:class="wrapcls" id="hr_wrap">
+    <div class="hr_wrap con hr_show_in hr_l4_2" v-bind:class="wrapcls" id="hr_wrap">
         <!--start:公用-->
         <p class="hr_img11 hr_logo"></p>
         <p class="hr_img0 cover hr_bg"></p>
@@ -116,11 +116,11 @@
                   <div class="hr_popup hr0" id="hr_l2_popup0" v-show="lev1Show">
                       <p class="overlay"></p>
                       <div class="hr_img16 hr_content">
-                          <p class="hr_title">&nbsp;<span id="hr_l2_popup0_title_val">5</span>元启动资金到手！</p>
+                          <p class="hr_title">&nbsp;<span id="hr_l2_popup0_title_val">5千</span>元启动资金到手！</p>
                           <div class="flex_c hr_coupon">
                               <p class="hr_val_wrap">
                                   <span class="hr_unit">¥</span>
-                                  <span class="hr_val" id="hr_l2_popup0_coupon_val">5</span>
+                                  <span class="hr_val" id="hr_l2_popup0_coupon_val">5千</span>
                               </p>
                               <p class="hr_tips_wrap">
                                   <span class="hr_cate" id="hr_l2_popup0_coupon_cate">全品类</span>
@@ -142,11 +142,11 @@
               <div class="hr_popup hr1" id="hr_l2_popup1" v-show="lev2Show">
                   <p class="overlay"></p>
                   <div class="hr_img16 hr_content">
-                      <p class="hr_title">&nbsp;<span id="hr_l2_popup1_title_val">100</span>元奖励金到手！</p>
+                      <p class="hr_title">&nbsp;<span id="hr_l2_popup1_title_val">2万</span>元奖励金到手！</p>
                       <div class="flex_c hr_coupon">
                           <p class="hr_val_wrap">
                               <span class="hr_unit">¥</span>
-                              <span class="hr_val" id="hr_l2_popup1_coupon_val">100</span>
+                              <span class="hr_val" id="hr_l2_popup1_coupon_val">2万</span>
                           </p>
                           <p class="hr_tips_wrap">
                               <span class="hr_cate" id="hr_l2_popup1_coupon_cate">全品类</span>
@@ -223,14 +223,7 @@
                       <a class="hr_txt">hr_drawn_mask</a>
                     </p>
                   </li>
-                  <li class="hr_coupon hr_drawn">
-                    <p class="hr_drawn_mask">
-                      <span class="hr_txt"></span>
-                    </p>
-                      <p class="hr_draw_tips">
-                        <span class="hr_txt">刮开神秘奖券</span>
-                      </p>
-                  </li>
+                  <draw></draw>
                 </ul>
                 <p class="hr_img7 hr_pack_f"></p>
                 <p class="hr_img7 hr_rope"></p>
@@ -243,7 +236,6 @@
         <div class="hr_out">
             <p class="hr_img4 hr_waterlemon"></p>
             <p class="hr_img5 hr_bubble"></p>
-
             <!--start:“去京东赢好礼”按钮-->
             <a class="hr_img5 hr_btn hr6" id="hr_l1_btns" v-on:click="hrL1clk">
                 <span class="hr_img5 hr_btn_txt"></span>
@@ -332,12 +324,12 @@
 </template>
 
 <script>
-import Hello from './components/Hello'
+import Draw from './components/Draw'
 
 export default {
   name: 'app',
   components: {
-    Hello
+    Draw
   },
   data: function () {
     return {
