@@ -19,7 +19,7 @@ export default {
     }
   },
   mounted: function () {
-    var lottery = new Lottery('lotteryContainer', 'rgba(81,81,81,1)', 'color', 300, 100)
+    var lottery = new Lottery('lotteryContainer', 'rgba(81,81,81,1)', 'color', 211, 85)
     lottery.init(getRandomStr(2), 'text')
     function getRandomStr (len) {
       var text = ''

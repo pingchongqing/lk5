@@ -14,7 +14,7 @@
 
         要隐藏“剩余奖金”，需添加class：hr_hide_money
     -->
-    <div class="hr_wrap con hr_show_in hr_l4_2" v-bind:class="wrapcls" id="hr_wrap">
+    <div class="hr_wrap con hr_show_in" v-bind:class="wrapcls" id="hr_wrap">
         <!--start:公用-->
         <p class="hr_img11 hr_logo"></p>
         <p class="hr_img0 cover hr_bg"></p>
@@ -202,7 +202,7 @@
                       <p class="hr_border"></p>
                       <p class="hr_val_wrap">
                           <span class="hr_unit">¥</span>
-                          <span class="hr_val" id="hr_l2_popup0_coupon_val">5</span>
+                          <span class="hr_val" id="hr_l2_popup0_coupon_val">5千</span>
                       </p>
                       <p class="hr_tips_wrap">
                           <span class="hr_cate" id="hr_l2_popup0_coupon_cate">全品类</span>
@@ -213,14 +213,11 @@
                     <p class="hr_border"></p>
                     <p class="hr_val_wrap">
                       <span class="hr_unit">¥</span>
-                      <span class="hr_val">100</span>
+                      <span class="hr_val">2万</span>
                     </p>
                     <p class="hr_tips_wrap">
                       <span class="hr_cate">全品类</span>
                       <span class="hr_cond">满100可用</span>
-                    </p>
-                    <p class="hr_drawn_mask">
-                      <a class="hr_txt">hr_drawn_mask</a>
                     </p>
                   </li>
                   <draw></draw>
@@ -370,19 +367,8 @@ export default {
       this.wrapcls = 'hr_l4_1'
       setTimeout(() => {
         this.wrapcls = 'hr_l4_2'
-      }, 1000)
+      }, 2500)
     }
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
